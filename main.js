@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  var THEME_KEY = "kh-theme";
   var skills = [
     { name: "Python", cat: "lang" },
     { name: "JavaScript", cat: "lang" },
@@ -34,43 +33,6 @@
 
   function prefersReducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-
-  /* --- Theme --- */
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(THEME_KEY);
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function applyTheme(mode) {
-    if (mode === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }
-
-  function initTheme() {
-    var stored = getStoredTheme();
-    if (stored === "dark" || stored === "light") {
-      applyTheme(stored);
-      return;
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      applyTheme("dark");
-    }
-  }
-
-  function toggleTheme() {
-    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    var next = isDark ? "light" : "dark";
-    applyTheme(next);
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch (e) {}
   }
 
   /* --- Scroll progress --- */
@@ -209,13 +171,6 @@
     if (y) y.textContent = String(new Date().getFullYear());
   }
 
-  /* --- Theme button --- */
-  function initThemeToggle() {
-    var btn = document.querySelector(".theme-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", toggleTheme);
-  }
-
   /* --- Mycelium canvas (organic network) --- */
   function initMycelium() {
     var canvas = document.getElementById("mycelium");
@@ -234,20 +189,18 @@
     var GRID = 55;
     var JITTER = 22;
 
+    function setPointer(clientX, clientY, active) {
+      hasMouse = active;
+      mx = clientX;
+      my = clientY;
+    }
+
     function cssColorMuted(alpha) {
-      var dark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (dark) {
-        return "rgba(168, 159, 145," + alpha + ")";
-      }
-      return "rgba(92, 83, 71," + alpha + ")";
+      return "rgba(168, 159, 145," + alpha + ")";
     }
 
     function cssAccent(alpha) {
-      var dark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (dark) {
-        return "rgba(143, 188, 148," + alpha + ")";
-      }
-      return "rgba(107, 143, 113," + alpha + ")";
+      return "rgba(143, 188, 148," + alpha + ")";
     }
 
     function buildNodes() {
@@ -273,6 +226,7 @@
     function resize() {
       w = window.innerWidth;
       h = window.innerHeight;
+      GRID = w < 600 ? 48 : 55;
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       canvas.style.width = w + "px";
@@ -337,32 +291,50 @@
     window.addEventListener(
       "mousemove",
       function (e) {
-        hasMouse = true;
-        mx = e.clientX;
-        my = e.clientY;
+        setPointer(e.clientX, e.clientY, true);
       },
       { passive: true }
     );
     window.addEventListener(
       "mouseleave",
       function () {
-        hasMouse = false;
+        setPointer(mx, my, false);
+      },
+      { passive: true }
+    );
+    window.addEventListener(
+      "touchstart",
+      function (e) {
+        if (e.touches.length) {
+          var t = e.touches[0];
+          setPointer(t.clientX, t.clientY, true);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener(
+      "touchmove",
+      function (e) {
+        if (e.touches.length) {
+          var t = e.touches[0];
+          setPointer(t.clientX, t.clientY, true);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener(
+      "touchend",
+      function () {
+        setPointer(mx, my, false);
       },
       { passive: true }
     );
     window.addEventListener("resize", resize);
 
-    var themeObserver = new MutationObserver(function () {
-      /* colors read each frame from data-theme */
-    });
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-
     resize();
     requestAnimationFrame(tick);
   }
 
-  initTheme();
-  initThemeToggle();
   initScrollProgress();
   initReveal();
   initSkillCloud();
