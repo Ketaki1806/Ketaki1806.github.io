@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ketaki Hadnurkar — computer science student and full-stack developer. Saarbrücken, Germany."
+    />
+    <title>Ketaki Hadnurkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <canvas id="mycelium" class="mycelium-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="logo" href="#">KH</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-label="Toggle dark theme"
+          title="Toggle theme"
+        ></button>
+        <a class="btn btn--small" href="Ketaki_Resume.pdf" download>Ketaki_Resume.pdf</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__blob" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <p class="hero__eyebrow">M.Sc. Computer Science · Saarbrücken</p>
+          <h1 id="hero-heading" class="hero__title">
+            <span class="hero__name">Ketaki Hadnurkar</span>
+          </h1>
+          <p class="hero__lead">
+            Full-stack engineer with experience in trading systems, cloud deployment, and ML —
+            building reliable software from database to UI.
+          </p>
+          <div class="hero__cta">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn btn--ghost" href="https://github.com/Ketaki1806" target="_blank" rel="noopener"
+              >GitHub</a
+            >
+          </div>
+        </div>
+        <button type="button" class="scroll-hint" data-scroll-to="#about" aria-label="Scroll to about">
+          <span class="scroll-hint__line"></span>
+        </button>
+      </section>
+
+      <section id="about" class="section section--tight" data-reveal>
+        <div class="section__header">
+          <h2>About</h2>
+          <p class="section__intro">
+            I’m pursuing a Master of Science in Computer Science at Universität des Saarlandes
+            (2025–present), after graduating with a B.Tech in Computer Engineering from VIIT Pune
+            (9.83/10). I care about performance, clear architecture, and shipping tools people rely on.
+          </p>
+        </div>
+      </section>
+
+      <section id="education" class="section" data-reveal>
+        <h2 class="section__title">Education</h2>
+        <ul class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__meta">
+              <span class="timeline__org">Universität des Saarlandes</span>
+              <span class="timeline__place">Saarbrücken, Germany</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="timeline__role">M.Sc. Computer Science</h3>
+              <p class="timeline__date">2025 – Present</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">
+              <span class="timeline__org">Vishwakarma Institute of Information Technology</span>
+              <span class="timeline__place">Pune, India</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="timeline__role">B.Tech Computer Engineering</h3>
+              <p class="timeline__date">2019 – 2023</p>
+              <p class="timeline__note">Final grade: 9.83 / 10.0</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="experience" class="section section--alt" data-reveal>
+        <h2 class="section__title">Work experience</h2>
+        <div class="cards">
+          <article class="card">
+            <header class="card__head">
+              <h3 class="card__title">Software Engineer</h3>
+              <p class="card__company">FINIQ Consulting (I) Pvt. Ltd. · Pune</p>
+              <p class="card__date">July 2023 – August 2023</p>
+            </header>
+            <ul class="card__list">
+              <li>
+                Production code for financial trading systems; full-stack FX cash &amp; equities
+                projects for banks (Angular, .NET microservices, React, ASP.NET Core, SQL Server,
+                REST, MVC).
+              </li>
+              <li>
+                Equities order processing &amp; quote UI: ~35% faster calculations via optimized
+                algorithms; ~40% faster services and ~25% app performance from SQL and indexing work.
+              </li>
+              <li>
+                Lead on a trading terminal for a major Spanish bank — 200+ users, 99.9% uptime;
+                coordinated a team of 5, 10+ major releases ahead of schedule.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <header class="card__head">
+              <h3 class="card__title">Software Development Intern</h3>
+              <p class="card__company">FINIQ Consulting (I) Pvt. Ltd. · Pune</p>
+              <p class="card__date">January 2023 – June 2023</p>
+            </header>
+            <ul class="card__list">
+              <li>Flutter app for FX bookings — ~60% faster transaction processing.</li>
+              <li>Java log parser with regex: faster issue resolution, improved reliability.</li>
+              <li>
+                Angular post-trade monitoring with Recharts; ~30% faster user decisions with
+                real-time visualizations.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <header class="card__head">
+              <h3 class="card__title">Full-Stack Software Developer</h3>
+              <p class="card__company">Freelance · Mahavir Electronics · Pune</p>
+              <p class="card__date">June 2022 – January 2023</p>
+            </header>
+            <ul class="card__list">
+              <li>
+                E-commerce platform: React storefront, Spring Boot + MongoDB, AWS EC2; ~40% sales
+                lift in three months; 100+ concurrent users; high uptime.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <header class="card__head">
+              <h3 class="card__title">Data Science Intern</h3>
+              <p class="card__company">Mahindra &amp; Mahindra Automobiles · Pune</p>
+              <p class="card__date">July 2021 – December 2021</p>
+            </header>
+            <ul class="card__list">
+              <li>
+                LSTM autoencoders for CNC signal analysis: ~30% efficiency, ~25% less downtime;
+                10M+ data points for predictive maintenance.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section" data-reveal>
+        <h2 class="section__title">Technical skills</h2>
+        <p class="skills__hint">Hover or focus tags to highlight the network — click a group to filter.</p>
+        <div class="skill-filters" role="tablist" aria-label="Skill groups">
+          <button type="button" class="skill-filter is-active" data-filter="all" role="tab" aria-selected="true">
+            All
+          </button>
+          <button type="button" class="skill-filter" data-filter="lang" role="tab" aria-selected="false">
+            Languages
+          </button>
+          <button type="button" class="skill-filter" data-filter="fe" role="tab" aria-selected="false">
+            Frontend
+          </button>
+          <button type="button" class="skill-filter" data-filter="be" role="tab" aria-selected="false">
+            Backend
+          </button>
+          <button type="button" class="skill-filter" data-filter="data" role="tab" aria-selected="false">
+            Data &amp; ML
+          </button>
+          <button type="button" class="skill-filter" data-filter="ops" role="tab" aria-selected="false">
+            Cloud &amp; DevOps
+          </button>
+        </div>
+        <div class="skill-cloud" id="skill-cloud"></div>
+      </section>
+
+      <section id="projects" class="section section--alt" data-reveal>
+        <h2 class="section__title">Projects &amp; publications</h2>
+        <div class="grid-2">
+          <article class="project">
+            <h3>Smart India Hackathon — QR E-Ticketing</h3>
+            <p class="project__meta">Android · Java · Scikit-learn · AR · June 2021 – Jan 2022</p>
+            <p>
+              Full-stack QR ticketing app; visitor forecasting with regression; web scraping
+              (BeautifulSoup); national finalist among 500+ teams.
+            </p>
+          </article>
+          <article class="project">
+            <h3>Quickdraw Image Recognizer</h3>
+            <p class="project__meta">TensorFlow · CNN · Flask · Angular · AWS EC2 · 2022</p>
+            <p>
+              Hand-drawn image classification across 345 categories (~92% accuracy); end-to-end with
+              API and Angular UI.
+            </p>
+          </article>
+          <article class="project">
+            <h3>Plant leaf disease detection</h3>
+            <p class="project__meta">Publication · IJARSCT · 2022</p>
+            <p>
+              Android app for 12 species; OpenCV GrabCut; CNN / AlexNet / ResNet comparison (best
+              ~88% accuracy).
+            </p>
+          </article>
+          <article class="project">
+            <h3>Feedback ECG &amp; PPG wrist band</h3>
+            <p class="project__meta">Biomedical signal processing · 2022</p>
+            <p>
+              BLE wearable POC; Python pipeline (NumPy, Pandas, HeartPy) with GCP; Twilio alerts;
+              copyright secured for research.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="languages" class="section section--narrow" data-reveal>
+        <h2 class="section__title">Languages</h2>
+        <ul class="lang-list">
+          <li><span>English</span> <span class="lang-list__level">C1 — Professional working</span></li>
+          <li><span>German</span> <span class="lang-list__level">A2 — Elementary</span></li>
+        </ul>
+      </section>
+
+      <section id="contact" class="section section--contact" data-reveal>
+        <div class="contact-card">
+          <h2 class="section__title">Contact</h2>
+          <p class="contact-card__text">
+            Open to roles and collaborations in software engineering, full-stack, and data-heavy
+            systems.
+          </p>
+          <ul class="contact-list">
+            <li>
+              <a id="email-link" href="mailto:ketakihadnurkar.adm@gmail.com">ketakihadnurkar.adm@gmail.com</a>
+              <button type="button" class="copy-btn" data-copy="ketakihadnurkar.adm@gmail.com" title="Copy email">
+                Copy
+              </button>
+            </li>
+            <li><a href="tel:+4915510237845">+49 155 10237845</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/ketaki-hadnurkar" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/Ketaki1806" target="_blank" rel="noopener">GitHub · Ketaki1806</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Ketaki Hadnurkar · Built as a static site for GitHub Pages</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script src="main.js" defer></script>
+  </body>
+</html>
