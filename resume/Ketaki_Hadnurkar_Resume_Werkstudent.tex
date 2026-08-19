@@ -1,0 +1,141 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Werkstudent resume. Compile with pdflatex.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{noto}
+\usepackage[margin=0.5in, top=0.38in, bottom=0.38in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\AtBeginEnvironment{itemize}{\small}
+
+\definecolor{accent}{RGB}{25, 70, 120}
+\definecolor{gray}{RGB}{80, 80, 80}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, hidelinks}
+
+\titleformat{\section}
+  {\normalsize\bfseries\color{accent}}
+  {}{0em}{}
+  [\color{accent}\titlerule]
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  parsep=0pt,
+  topsep=1pt,
+  label=\textbullet
+}
+
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+\linespread{0.91}
+
+\newcommand{\resumeEntry}[4]{%
+  \vspace{2pt}%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{gray}{\small #2} \\[-1pt]
+    \textit{\textcolor{gray}{\small #3}} & \textcolor{gray}{\small #4}
+  \end{tabularx}%
+}
+
+\newcommand{\projectEntry}[2]{%
+  \vspace{2pt}%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{gray}{\small #2}
+  \end{tabularx}\par
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries\color{accent} KETAKI HADNURKAR}\\[3pt]
+  {\small\color{gray} Computer Science MSc \textbar{} Software Engineer \textbar{} Saarbr\"ucken}\\[4pt]
+  \textcolor{gray}{\small
+    Saarbr\"ucken, Germany \textbar{}
+    (+49) 15510237845 \textbar{}
+    \href{mailto:ketakihadnurkar.adm@gmail.com}{ketakihadnurkar.adm@gmail.com} \textbar{}
+    \href{https://www.linkedin.com/in/ketaki-hadnurkar}{LinkedIn} \textbar{}
+    \href{https://github.com/Ketaki1806}{GitHub} \textbar{}
+    \href{https://ketaki1806.github.io/}{Portfolio}
+  }
+\end{center}
+
+\vspace{1pt}
+
+\section{Education}
+
+\resumeEntry{Universit\"at des Saarlandes}{Ongoing}
+  {Master of Science in Computer Science \textbar{} Grade: 2.1}{Saarbr\"ucken, Germany}
+\textcolor{gray}{\small \textit{Relevant coursework:} Algorithms \& Data Structures, Database Systems, Distributed Systems, Operating Systems, Machine Learning.}
+
+\vspace{1pt}
+
+\resumeEntry{Vishwakarma Institute of Information Technology}{Jun 2023}
+  {Bachelor of Technology in Computer Engineering \textbar{} Final Grade: 9.83/10.0}{Pune, India}
+
+\section{Languages}
+
+\vspace{1pt}
+\noindent\textbf{English} C1 \qquad \textbf{German} A2
+
+\section{Work Experience}
+
+\resumeEntry{Saar Metall Gruppe}{Ongoing - Present}
+  {Werkstudentin (Software Engineer)}{Saarbr\"ucken, Germany}
+\begin{itemize}
+  \item Architect, design, and build a manufacturing production-testing platform from scratch as sole engineer (React, PHP, MySQL, SSMS), replacing paper checks with a traceable flow from order intake through production to shipment.
+  \item Deploy the platform to 1000+ clients and 3+ sites in Germany and France so all test results are digital and ordered.
+  \item Design and architect a drawing tool that stamps measurable dimensions onto technical drawings, cutting 20+ hours of manual effort.
+\end{itemize}
+
+\resumeEntry{Finiq Consulting India Pvt. Ltd.}{Mar 2023 - Aug 2025}
+  {Software Engineer}{Pune, India}
+\begin{itemize}
+  \item Owned end-to-end delivery of FX cash and FX equities platforms for banks in Singapore and Malaysia (Angular, .NET microservices, React, ASP.NET, SQL), turning fragmented trading workflows into production systems.
+  \item Led architecture and build of a bonds trading terminal for a major Spanish bank, used by 200+ traders and sales teams to quote and execute with sub-second latency.
+  \item Redesigned equities order and quote logic and tightened SQL and service paths so core calculations stayed correct under live market load.
+\end{itemize}
+
+\resumeEntry{Finiq Consulting India Pvt. Ltd.}{Jan 2023 - Jun 2023}
+  {Software Development Intern}{Pune, India}
+\begin{itemize}
+  \item Built a mobile FX booking app that cut processing time from 45 minutes to 8 minutes by removing the manual booking bottleneck.
+  \item Designed a custom log parser that cut issue resolution time by 50\% and helped prevent 20+ production incidents.
+\end{itemize}
+
+\section{Projects}
+
+\projectEntry{Plant Leaf Disease Detection using Image Processing and Deep Learning}{Published in IJARSCT}
+\begin{itemize}
+  \item Built an Android diagnostic for 12 Indian plant species that isolates the leaf with OpenCV GrabCut before classification, instead of training on cluttered field photos.
+  \item Benchmarked CNN, AlexNet, and ResNet to choose the strongest detector and co-authored the peer-reviewed paper.
+\end{itemize}
+
+\projectEntry{QR-Based Android E-Ticketing Application}{Jun 2021 - Jan 2022}
+\begin{itemize}
+  \item Designed a full-stack QR e-ticketing Android app for Smart India Hackathon, with visitor-count forecasting and on-site AR.
+  \item Reached national finals.
+\end{itemize}
+
+\section{Skills}
+
+\vspace{1pt}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\small}l X@{}}
+  Languages & \small Python, Java, JavaScript, TypeScript, C\#, SQL, PHP \\[3pt]
+  Frameworks & \small React, Angular, .NET, Spring Boot \\[3pt]
+  Data & \small MySQL, MSSQL, MongoDB, SSMS \\[3pt]
+  Tools & \small Git, Docker, Jenkins, JIRA, Postman \\[3pt]
+  ML & \small PyTorch, TensorFlow, Scikit-learn \\
+\end{tabularx}
+
+\end{document}
